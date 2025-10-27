@@ -5,90 +5,95 @@ import json
 app = Flask(__name__)
 
 def generate_video_gallery():
-    # Folder containing videos
-    videos_dir = os.path.join(os.path.dirname(__file__), "static", "videos")
+    # This would be replaced with your actual Google Drive video data
+    # For now, using sample data structure
+    google_drive_videos = [
+        {
+        "name": "CBVideo",
+        "drive_url": "https://drive.google.com/file/d/1ppUDD-fDzl5q1OTJjmaKEX6uBqNRR_3B/view?usp=sharing",
+        "embed_url": "https://drive.google.com/file/d/1ppUDD-fDzl5q1OTJjmaKEX6uBqNRR_3B/preview",
+        "file_type": "MP4",
+        "file_size": "1.58 GB",
+        "duration": "2:40:22",
+        "last_modified": "2025-10-27"
+    },
+        {
+        "name": "CBVideo",
+        "drive_url": "https://drive.google.com/file/d/1qXgkD8N_hkKDn6PvrlQepaY4fDzSo8NQ/view?usp=sharing",
+        "embed_url": "https://drive.google.com/file/d/1qXgkD8N_hkKDn6PvrlQepaY4fDzSo8NQ/preview",
+        "file_type": "MP4",
+        "file_size": "1.49 GB",
+        "duration": "2:26:29",
+        "last_modified": "2025-10-27"
+    },
+    {
+        "name": "CBVideo",
+        "drive_url": "https://drive.google.com/file/d/1z0u6M_AOy9tXYCLRimOaRvZqEvKnZF1O/view?usp=sharing",
+        "embed_url": "https://drive.google.com/file/d/1z0u6M_AOy9tXYCLRimOaRvZqEvKnZF1O/preview",
+        "file_type": "MP4",
+        "file_size": "1.19 GB",
+        "duration": "1:57:12",
+        "last_modified": "2025-10-27"
+    },
+    {
+        "name": "CBVideo",
+        "drive_url": "https://drive.google.com/file/d/1NkEGEjByxjvPhlQ5zrvM9iuIALeUDSUB/view?usp=sharing",
+        "embed_url": "https://drive.google.com/file/d/1NkEGEjByxjvPhlQ5zrvM9iuIALeUDSUB/preview",
+        "file_type": "MP4",
+        "file_size": "1.03 GB",
+        "duration": "1:44:24",
+        "last_modified": "2025-10-27"
+    },
+    {
+    
+        "name": "CBVideo",
+        "drive_url": "https://drive.google.com/file/d/1e6_h4XyeRuesJZG7KKhyhNLf0sAVUPbl/view?usp=sharing",
+        "embed_url": "https://drive.google.com/file/d/1e6_h4XyeRuesJZG7KKhyhNLf0sAVUPbl/preview",
+        "file_type": "MP4",
+        "file_size": "789.6 MB",
+        "duration": "1:28:14",
+        "last_modified": "2025-10-27"
+    },
+    {
+    
+        "name": "CBVideo",
+        "drive_url": "https://drive.google.com/file/d/1nak73al-GRhtZM5MKbGSkSmm6u0in7-w/view?usp=sharing",
+        "embed_url": "https://drive.google.com/file/d/1nak73al-GRhtZM5MKbGSkSmm6u0in7-w/preview",
+        "file_type": "MP4",
+        "file_size": "698.3 MB",
+        "duration": "1:06:58",
+        "last_modified": "2025-10-27"
+    },
+    {
+    
+        "name": "CBVideo",
+        "drive_url": "https://drive.google.com/file/d/1wMR3AmWzw762bZmAsnjWt5hQ1NPk_wAc/view?usp=sharing",
+        "embed_url": "https://drive.google.com/file/d/1wMR3AmWzw762bZmAsnjWt5hQ1NPk_wAc/preview",
+        "file_type": "MP4",
+        "file_size": "453.4 MB",
+        "duration": "51:06",
+        "last_modified": "2025-10-27"
+    },
+    {
+        "name": "CBVideo",
+        "drive_url": "https://drive.google.com/file/d/1Hq-U0Z59VZoSGidXPKuTd35jUHkEX3uB/view?usp=sharing",
+        "embed_url": "https://drive.google.com/file/d/1Hq-U0Z59VZoSGidXPKuTd35jUHkEX3uB/preview",
+        "file_type": "MP4",
+        "file_size": "316.3 MB",
+        "duration": "29:02",
+        "last_modified": "2025-10-27"
+    },
+    {
+        "name": "Porn",
+        "drive_url": "https://drive.google.com/file/d/1KbS-oAp-YJvyXPCGYc_caKVYT3bfljo1/view?usp=sharing",
+        "embed_url": "https://drive.google.com/file/d/1KbS-oAp-YJvyXPCGYc_caKVYT3bfljo1/preview",
+        "file_type": "MP4",
+        "file_size": "194 MB",
+        "duration": "8:54",
+        "last_modified": "2025-10-27"
+    },
+    ]
 
-    # Make sure the folder exists
-    if not os.path.exists(videos_dir):
-        os.makedirs(videos_dir, exist_ok=True)
-        return """
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Video Gallery</title>
-            <style>
-                body { 
-                    font-family: 'Segoe UI', system-ui, sans-serif; 
-                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                    min-height: 100vh;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    color: white;
-                    text-align: center;
-                }
-                .error-container {
-                    background: rgba(255,255,255,0.1);
-                    backdrop-filter: blur(10px);
-                    padding: 3rem;
-                    border-radius: 20px;
-                    border: 1px solid rgba(255,255,255,0.2);
-                }
-            </style>
-        </head>
-        <body>
-            <div class="error-container">
-                <h2>Welcome to Video Gallery!</h2>
-                <p>No videos found yet. Upload videos to the 'static/videos' folder.</p>
-            </div>
-        </body>
-        </html>
-        """
-
-    # Supported video formats
-    video_extensions = (".mp4", ".webm", ".ogg", ".mov", ".mkv", ".avi")
-
-    # List all video files
-    videos = [f for f in os.listdir(videos_dir) if f.lower().endswith(video_extensions)]
-
-    if not videos:
-        return """
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Video Gallery</title>
-            <style>
-                body { 
-                    font-family: 'Segoe UI', system-ui, sans-serif; 
-                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                    min-height: 100vh;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    color: white;
-                    text-align: center;
-                }
-                .error-container {
-                    background: rgba(255,255,255,0.1);
-                    backdrop-filter: blur(10px);
-                    padding: 3rem;
-                    border-radius: 20px;
-                    border: 1px solid rgba(255,255,255,0.2);
-                }
-            </style>
-        </head>
-        <body>
-            <div class="error-container">
-                <h2>Ready for videos!</h2>
-                <p>Add video files to the 'static/videos' folder and refresh the page.</p>
-            </div>
-        </body>
-        </html>
-        """
 
     # Build HTML with modern design
     html = f"""<!DOCTYPE html>
@@ -96,7 +101,7 @@ def generate_video_gallery():
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Gallery</title>
+    <title>Google Drive Video Gallery</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         * {{
@@ -114,7 +119,7 @@ def generate_video_gallery():
         }}
 
         .container {{
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 2rem;
         }}
@@ -155,89 +160,118 @@ def generate_video_gallery():
             border: 1px solid rgba(255,255,255,0.2);
         }}
 
-        .video-grid {{
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }}
-
-        .video-card {{
+        .video-table-container {{
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
             border-radius: 20px;
-            padding: 1.5rem;
+            padding: 2rem;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
+            margin-top: 2rem;
+            overflow-x: auto;
+        }}
+
+        .video-table {{
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }}
+
+        .video-table th {{
+            background: rgba(0, 255, 255, 0.1);
+            padding: 1rem;
+            text-align: left;
+            color: #00ffff;
+            font-weight: 600;
+            border-bottom: 2px solid rgba(0, 255, 255, 0.3);
+        }}
+
+        .video-table td {{
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }}
+
+        .video-table tr:hover {{
+            background: rgba(255, 255, 255, 0.05);
+        }}
+
+        .video-preview {{
+            width: 300px;
+            height: 169px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
             overflow: hidden;
         }}
 
-        .video-card::before {{
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
+        .video-preview iframe {{
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-            transition: left 0.5s ease;
-        }}
-
-        .video-card:hover::before {{
-            left: 100%;
-        }}
-
-        .video-card:hover {{
-            transform: translateY(-10px);
-            border-color: rgba(0, 255, 255, 0.3);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }}
-
-        .video-card h3 {{
-            color: #00ffff;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-            text-align: center;
-            padding: 0.5rem;
-            border-bottom: 1px solid rgba(0, 255, 255, 0.2);
-        }}
-
-        .video-player {{
-            width: 100%;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }}
-
-        video {{
-            width: 100%;
-            height: auto;
-            display: block;
-            background: #000;
+            border: none;
         }}
 
         .video-info {{
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 1rem;
-            padding: 0 0.5rem;
-            color: #8892b0;
-            font-size: 0.9rem;
+            flex-direction: column;
+            gap: 0.5rem;
         }}
 
-        .file-size {{
+        .video-name {{
+            font-weight: 600;
+            color: #00ffff;
+            font-size: 1.1rem;
+        }}
+
+        .video-meta {{
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            color: #8892b0;
+        }}
+
+        .meta-item {{
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }}
 
-        .file-type {{
-            background: rgba(0, 255, 255, 0.1);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
+        .action-buttons {{
+            display: flex;
+            gap: 0.5rem;
+        }}
+
+        .btn {{
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }}
+
+        .btn-primary {{
+            background: rgba(0, 255, 255, 0.2);
+            color: #00ffff;
             border: 1px solid rgba(0, 255, 255, 0.3);
+        }}
+
+        .btn-primary:hover {{
+            background: rgba(0, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }}
+
+        .btn-secondary {{
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }}
+
+        .btn-secondary:hover {{
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
         }}
 
         .footer {{
@@ -248,17 +282,14 @@ def generate_video_gallery():
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }}
 
-        .auto-refresh {{
-            background: rgba(0, 255, 255, 0.1);
-            padding: 1rem;
-            border-radius: 10px;
-            margin: 1rem 0;
-            border: 1px solid rgba(0, 255, 255, 0.3);
-        }}
-
         @media (max-width: 768px) {{
-            .video-grid {{
-                grid-template-columns: 1fr;
+            .video-table-container {{
+                padding: 1rem;
+            }}
+            
+            .video-table th, 
+            .video-table td {{
+                padding: 0.5rem;
             }}
             
             .header h1 {{
@@ -268,6 +299,11 @@ def generate_video_gallery():
             .container {{
                 padding: 1rem;
             }}
+            
+            .video-preview {{
+                width: 200px;
+                height: 113px;
+            }}
         }}
 
         /* Loading animation */
@@ -276,7 +312,7 @@ def generate_video_gallery():
             to {{ opacity: 1; transform: translateY(0); }}
         }}
 
-        .video-card {{
+        .video-table tr {{
             animation: fadeIn 0.6s ease forwards;
         }}
     </style>
@@ -284,100 +320,120 @@ def generate_video_gallery():
 <body>
     <div class="container">
         <div class="header">
-            <h1><i class="fas fa-play-circle"></i> Video Gallery</h1>
-            <p>Auto-generated video collection</p>
+            <h1><i class="fab fa-google-drive"></i> Google Drive Videos</h1>
+            <p>Your video collection from Google Drive</p>
             <div class="stats">
                 <div class="stat-item">
-                    <i class="fas fa-video"></i> {len(videos)} videos
+                    <i class="fas fa-video"></i> {len(google_drive_videos)} videos
                 </div>
                 <div class="stat-item">
-                    <i class="fas fa-sync-alt"></i> Auto-refresh on changes
+                    <i class="fas fa-cloud"></i> Google Drive
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-sync-alt"></i> Auto-refresh
                 </div>
             </div>
         </div>
 
-        <div class="auto-refresh">
-            <i class="fas fa-info-circle"></i> 
-            Add videos to the <code>static/videos</code> folder and refresh the page
-        </div>
-
-        <div class="video-grid">
+        <div class="video-table-container">
+            <table class="video-table">
+                <thead>
+                    <tr>
+                        <th>Video Preview</th>
+                        <th>Video Information</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
 """
 
-    total_size = 0
-    for video in videos:
-        video_path = os.path.join(videos_dir, video)
-        file_size = 0
-        
-        try:
-            # Get file size in MB
-            size_bytes = os.path.getsize(video_path)
-            file_size = size_bytes
-            total_size += size_bytes
-            file_size_display = f"{size_bytes / (1024 * 1024):.1f} MB"
-        except:
-            file_size_display = "Unknown"
-        
-        file_ext = os.path.splitext(video)[1][1:].upper()
-        
+    for video in google_drive_videos:
         html += f"""
-            <div class="video-card">
-                <h3>{video}</h3>
-                <div class="video-player">
-                    <video controls poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='225' viewBox='0 0 400 225'%3E%3Crect width='400' height='225' fill='%23111'/%3E%3Cpath d='M160,90 L160,135 L200,112.5 Z' fill='%23333'/%3E%3C/svg%3E">
-                        <source src="/static/videos/{video}" type="video/{file_ext.lower()}">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-                <div class="video-info">
-                    <div class="file-size">
-                        <i class="fas fa-hdd"></i>
-                        <span>{file_size_display}</span>
-                    </div>
-                    <div class="file-type">
-                        {file_ext}
-                    </div>
-                </div>
-            </div>
+                    <tr>
+                        <td>
+                            <div class="video-preview">
+                                <iframe src="{video['embed_url']}" 
+                                        allow="autoplay; encrypted-media" 
+                                        allowfullscreen>
+                                </iframe>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="video-info">
+                                <div class="video-name">{video['name']}</div>
+                                <div class="video-meta">
+                                    <div class="meta-item">
+                                        <i class="fas fa-file"></i>
+                                        <span>{video['file_type']}</span>
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-hdd"></i>
+                                        <span>{video['file_size']}</span>
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-clock"></i>
+                                        <span>{video['duration']}</span>
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="fas fa-calendar"></i>
+                                        <span>{video['last_modified']}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="action-buttons">
+                                <a href="{video['drive_url']}" target="_blank" class="btn btn-primary">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    Open in Drive
+                                </a>
+                                <button class="btn btn-secondary" onclick='playVideo("{video['embed_url']}")'>
+                                    <i class="fas fa-play"></i>
+                                    Play
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
 """
 
-    total_size_display = f"{total_size / (1024 * 1024):.1f} MB"
-    
     html += f"""
+                </tbody>
+            </table>
         </div>
         
         <div class="footer">
-            <p>Generated automatically with ❤️ | {len(videos)} videos ({total_size_display})</p>
+            <p>Powered by Google Drive ❤️ | {len(google_drive_videos)} videos loaded</p>
         </div>
     </div>
 
     <script>
-        // Auto-refresh every 30 seconds to check for new videos
+        function playVideo(embedUrl) {{
+            // Open video in a new window or modal for better viewing
+            window.open(embedUrl, '_blank', 'width=800,height=600');
+        }}
+
+        // Auto-refresh every 60 seconds
         setTimeout(() => {{
             window.location.reload();
-        }}, 30000);
+        }}, 60000);
 
-        // Add loading states to videos
+        // Add click handlers for better UX
         document.addEventListener('DOMContentLoaded', function() {{
-            const videos = document.querySelectorAll('video');
+            const videoRows = document.querySelectorAll('.video-table tbody tr');
             
-            videos.forEach(video => {{
-                video.addEventListener('loadstart', function() {{
-                    this.style.opacity = '0.7';
-                }});
-                
-                video.addEventListener('canplay', function() {{
-                    this.style.opacity = '1';
-                }});
-                
-                // Add click to play/pause
-                video.addEventListener('click', function() {{
-                    if (this.paused) {{
-                        this.play();
-                    }} else {{
-                        this.pause();
+            videoRows.forEach(row => {{
+                row.addEventListener('click', function(e) {{
+                    // Don't trigger if clicking on buttons
+                    if (!e.target.closest('.btn')) {{
+                        const iframe = this.querySelector('iframe');
+                        if (iframe) {{
+                            const embedUrl = iframe.src;
+                            playVideo(embedUrl);
+                        }}
                     }}
                 }});
+                
+                row.style.cursor = 'pointer';
             }});
         }});
     </script>
@@ -396,5 +452,5 @@ def health():
     return json.dumps({"status": "healthy"})
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 10000))
+    port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port, debug=False)
