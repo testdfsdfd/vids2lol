@@ -10,6 +10,15 @@ def generate_video_gallery():
     google_drive_videos = [
         {
         "name": "CBVideo",
+        "drive_url": "https://drive.google.com/file/d/1gIeXDmPSCcSrwG4nR73mbFDBGw9pzl7K/view?usp=sharing",
+        "embed_url": "https://drive.google.com/file/d/1gIeXDmPSCcSrwG4nR73mbFDBGw9pzl7K/preview",
+        "file_type": "MP4",
+        "file_size": "4.03 GB",
+        "duration": "1:452:18",
+        "last_modified": "2025-10-27"
+    },
+        {
+        "name": "CBVideo",
         "drive_url": "https://drive.google.com/file/d/1ppUDD-fDzl5q1OTJjmaKEX6uBqNRR_3B/view?usp=sharing",
         "embed_url": "https://drive.google.com/file/d/1ppUDD-fDzl5q1OTJjmaKEX6uBqNRR_3B/preview",
         "file_type": "MP4",
