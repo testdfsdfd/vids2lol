@@ -17,6 +17,15 @@ def generate_video_gallery():
         "duration": "2:40:22",
         "last_modified": "2025-10-27"
     },
+    {
+        "name": "CBVideo",
+        "drive_url": "https://drive.google.com/file/d//view?usp=sharing",
+        "embed_url": "https://drive.google.com/file/d//preview",
+        "file_type": "MP4",
+        "file_size": "1.54 GB",
+        "duration": "2:40:22",
+        "last_modified": "2025-10-27"
+    },
         {
         "name": "CBVideo",
         "drive_url": "https://drive.google.com/file/d/1qXgkD8N_hkKDn6PvrlQepaY4fDzSo8NQ/view?usp=sharing",
@@ -24,6 +33,15 @@ def generate_video_gallery():
         "file_type": "MP4",
         "file_size": "1.49 GB",
         "duration": "2:26:29",
+        "last_modified": "2025-10-27"
+    },
+    {
+        "name": "CBVideo",
+        "drive_url": "https://drive.google.com/file/d//view?usp=sharing",
+        "embed_url": "https://drive.google.com/file/d//preview",
+        "file_type": "MP4",
+        "file_size": "1.32 GB",
+        "duration": "2:40:22",
         "last_modified": "2025-10-27"
     },
     {
@@ -57,11 +75,31 @@ def generate_video_gallery():
     {
     
         "name": "CBVideo",
+        "drive_url": "https://drive.google.com/file/d/1dcykIhsz9ioMO83K8B7kIoFhf8hLnqj2/view?usp=sharing",
+        "embed_url": "https://drive.google.com/file/d/1dcykIhsz9ioMO83K8B7kIoFhf8hLnqj2/preview",
+        "file_type": "MP4",
+        "file_size": "749.4 MB",
+        "duration": "1:08:55",
+        "last_modified": "2025-10-27"
+    },
+    {
+    
+        "name": "CBVideo",
         "drive_url": "https://drive.google.com/file/d/1nak73al-GRhtZM5MKbGSkSmm6u0in7-w/view?usp=sharing",
         "embed_url": "https://drive.google.com/file/d/1nak73al-GRhtZM5MKbGSkSmm6u0in7-w/preview",
         "file_type": "MP4",
         "file_size": "698.3 MB",
         "duration": "1:06:58",
+        "last_modified": "2025-10-27"
+    },
+    {
+    
+        "name": "CBVideo",
+        "drive_url": "https://drive.google.com/file/d/13fe6B8GRspvZnSAB0PSebj7D3AX19n9v/view?usp=sharing",
+        "embed_url": "https://drive.google.com/file/d/13fe6B8GRspvZnSAB0PSebj7D3AX19n9v/preview",
+        "file_type": "MP4",
+        "file_size": "537.2 MB",
+        "duration": "1:02:18",
         "last_modified": "2025-10-27"
     },
     {
@@ -75,6 +113,25 @@ def generate_video_gallery():
         "last_modified": "2025-10-27"
     },
     {
+    
+        "name": "CBVideo",
+        "drive_url": "https://drive.google.com/file/d//view?usp=sharing",
+        "embed_url": "https://drive.google.com/file/d//preview",
+        "file_type": "MP4",
+        "file_size": "353.4 MB",
+        "duration": "51:06",
+        "last_modified": "2025-10-27"
+    },
+    {
+        "name": "CBVideo",
+        "drive_url": "https://drive.google.com/file/d/17bvnPWaKmB-WwXb5OpDZszxFTX7axLIR/view?usp=sharing",
+        "embed_url": "https://drive.google.com/file/d/17bvnPWaKmB-WwXb5OpDZszxFTX7axLIR/preview",
+        "file_type": "MP4",
+        "file_size": "343.3 MB",
+        "duration": "25:56",
+        "last_modified": "2025-10-27"
+    },
+    {
         "name": "CBVideo",
         "drive_url": "https://drive.google.com/file/d/1Hq-U0Z59VZoSGidXPKuTd35jUHkEX3uB/view?usp=sharing",
         "embed_url": "https://drive.google.com/file/d/1Hq-U0Z59VZoSGidXPKuTd35jUHkEX3uB/preview",
@@ -84,11 +141,57 @@ def generate_video_gallery():
         "last_modified": "2025-10-27"
     },
     {
+    
+        "name": "CBVideo",
+        "drive_url": "https://drive.google.com/file/d/1Wi70PEz0VMwJysZdcU8Qphrm4rG7HEc1/view?usp=sharing",
+        "embed_url": "https://drive.google.com/file/d/1Wi70PEz0VMwJysZdcU8Qphrm4rG7HEc1/preview",
+        "file_type": "MP4",
+        "file_size": "313.9 MB",
+        "duration": "8:27",
+        "last_modified": "2025-10-27"
+    },
+    {
+        "name": "Porn",
+        "drive_url": "https://drive.google.com/file/d/1LUg3tERzpkm30LEg7hwrK-rg71oglKNE/view?usp=sharing",
+        "embed_url": "https://drive.google.com/file/d/1LUg3tERzpkm30LEg7hwrK-rg71oglKNE/preview",
+        "file_type": "MP4",
+        "file_size": "243.3 MB",
+        "duration": "9:17",
+        "last_modified": "2025-10-27"
+    },
+    {
         "name": "Porn",
         "drive_url": "https://drive.google.com/file/d/1KbS-oAp-YJvyXPCGYc_caKVYT3bfljo1/view?usp=sharing",
         "embed_url": "https://drive.google.com/file/d/1KbS-oAp-YJvyXPCGYc_caKVYT3bfljo1/preview",
         "file_type": "MP4",
         "file_size": "194 MB",
+        "duration": "8:54",
+        "last_modified": "2025-10-27"
+    },
+    {
+        "name": "Porn",
+        "drive_url": "https://drive.google.com/file/d/1bY010t2PB85dqIy6hR4mHrw1f4BeJ2y6/view?usp=sharing",
+        "embed_url": "https://drive.google.com/file/d/1bY010t2PB85dqIy6hR4mHrw1f4BeJ2y6/preview",
+        "file_type": "MP4",
+        "file_size": "174.6 MB",
+        "duration": "5:11",
+        "last_modified": "2025-10-27"
+    },
+    {
+        "name": "Porn",
+        "drive_url": "https://drive.google.com/file/d//view?usp=sharing",
+        "embed_url": "https://drive.google.com/file/d//preview",
+        "file_type": "MP4",
+        "file_size": "169.1 MB",
+        "duration": "8:54",
+        "last_modified": "2025-10-27"
+    },
+    {
+        "name": "Porn",
+        "drive_url": "https://drive.google.com/file/d//view?usp=sharing",
+        "embed_url": "https://drive.google.com/file/d//preview",
+        "file_type": "MP4",
+        "file_size": "111.1 MB",
         "duration": "8:54",
         "last_modified": "2025-10-27"
     },
