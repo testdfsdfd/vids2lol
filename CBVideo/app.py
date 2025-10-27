@@ -46,6 +46,15 @@ def generate_video_gallery():
     },
     {
         "name": "CBVideo",
+        "drive_url": "https://drive.google.com/file/d/1noAvieApGh5sy-B-KGeu8T9L1vjJChQL/view?usp=sharing",
+        "embed_url": "https://drive.google.com/file/d/1noAvieApGh5sy-B-KGeu8T9L1vjJChQL/preview",
+        "file_type": "MP4",
+        "file_size": "1.4 GB",
+        "duration": "2:12:03",
+        "last_modified": "2025-10-27"
+    },
+    {
+        "name": "CBVideo",
         "drive_url": "https://drive.google.com/file/d//view?usp=sharing",
         "embed_url": "https://drive.google.com/file/d//preview",
         "file_type": "MP4",
@@ -109,6 +118,16 @@ def generate_video_gallery():
         "file_type": "MP4",
         "file_size": "537.2 MB",
         "duration": "1:02:18",
+        "last_modified": "2025-10-27"
+    },
+    {
+    
+        "name": "CBVideo",
+        "drive_url": "https://drive.google.com/file/d/1sf2L62Dav7cxPiifF4PrYCP84jZfRsow/view?usp=sharing",
+        "embed_url": "https://drive.google.com/file/d/1sf2L62Dav7cxPiifF4PrYCP84jZfRsow/preview",
+        "file_type": "MP4",
+        "file_size": "509.2 MB",
+        "duration": "48:37",
         "last_modified": "2025-10-27"
     },
     {
